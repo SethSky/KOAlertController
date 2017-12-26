@@ -8,6 +8,8 @@ Use this class to configure alerts and action sheets with the message that you w
 <img src="Assets/KOAlertController_1.png" width="225" height="400">
 <img src="Assets/KOAlertController_3.png" width="225" height="400">
 <img src="Assets/KOAlertController_6.png" width="225" height="400">
+<img src="Assets/KOAlertController_4.png" width="225" height="400">
+<img src="Assets/KOAlertController_7.png" width="225" height="400">
 <img src="Assets/KOAlertController_8.png" width="225" height="400">
 </div>
 

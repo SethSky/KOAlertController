@@ -94,7 +94,7 @@ open class KOAlertController : UIViewController{
     /// - Parameters:
     ///   - title: String optional
     ///   - message: String optional
-    init(_ title:String?,_ message:String?) {
+    public init(_ title:String?,_ message:String?) {
         super.init(nibName: nil, bundle: nil)
         self.title = title
         self.message = message
@@ -106,14 +106,14 @@ open class KOAlertController : UIViewController{
     ///   - title:  String optional
     ///   - message:  String optional
     ///   - image:  UIImage optional
-    init(_ title:String?,_ message:String?,_ image:UIImage?) {
+    public init(_ title:String?,_ message:String?,_ image:UIImage?) {
         super.init(nibName: nil, bundle: nil)
         self.title = title
         self.message = message
         self.image = image
         self.modalPresentationStyle = .overCurrentContext
     }
-    required public init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     //––––––––––––––––––––––––––––––––––––––––
@@ -416,13 +416,13 @@ open class KOAlertController : UIViewController{
             view.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant:insets.bottom)
             ])
     }
-   /// Add individual item constraints
-   ///
-   /// - Parameters:
-   ///   - items: Array<UIView>
-   ///   - mainView: UIView
-   ///   - insideInset: CGFloat
-   private func addIndividualItemConstraints(_ items: [UIView], mainView: UIView, insideInset:CGFloat) {
+    /// Add individual item constraints
+    ///
+    /// - Parameters:
+    ///   - items: Array<UIView>
+    ///   - mainView: UIView
+    ///   - insideInset: CGFloat
+    private func addIndividualItemConstraints(_ items: [UIView], mainView: UIView, insideInset:CGFloat) {
         for (index, view) in items.enumerated() {
             var constrantsArray:Array<NSLayoutConstraint> = []
             //right and left
@@ -435,7 +435,7 @@ open class KOAlertController : UIViewController{
             if index == 0{
                 constrantsArray.append(view.topAnchor.constraint(equalTo: mainView.topAnchor))
             }else{
-                if index == items.count - 1 { 
+                if index == items.count - 1 {
                     constrantsArray.append(mainView.bottomAnchor.constraint(equalTo: view.bottomAnchor))
                 }
                 let prevLabel = items[index - 1]
@@ -552,7 +552,7 @@ open class KOAlertController : UIViewController{
             if self.alertTextField == nil{
                 unowned let textF = UITextField(frame: CGRect(x: 0, y: 0, width: 0, height: 50))
                 textF.translatesAutoresizingMaskIntoConstraints = false
-                textF.delegate = self 
+                textF.delegate = self
                 self.textFieldArray.append(textF)
                 textField(textF)
             }else{
@@ -563,7 +563,7 @@ open class KOAlertController : UIViewController{
                     self.textFieldArray.append(textF)
                     textField(textF)
                 }
-            } 
+            }
         }))
     }
     /// Add action
@@ -587,7 +587,7 @@ open class KOAlertController : UIViewController{
             self.buttonView.addSubview(button)
             self.buttonArray.append(button)
         }))
-        actionArray.append(handler) 
+        actionArray.append(handler)
     }
     //––––––––––––––––––––––––––––––––––––––––
     //MARK: - Private Methods -

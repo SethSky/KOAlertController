@@ -2,6 +2,6 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'Example' do 
-  pod 'KOAlertController', '~> 1.0.0'
+  pod 'KOAlertController', '~> 1.0.1'
 end
  

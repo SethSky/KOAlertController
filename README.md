@@ -4,10 +4,15 @@
 KOAlertController is an custom alert controller library written in Swift.
 Use this class to configure alerts and action sheets with the message that you want to display and the actions from which to choose
 
+<div align="center">
+<img src="Assets/KOAlertController_3.png" width="225" height="400">
+</div>
+
 - [Features](#features)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](Documentation/Usage.md)
+- [Screenshots](Assets/) 
 - [License](#license)
 
 ## Features
@@ -36,7 +41,7 @@ Use this class to configure alerts and action sheets with the message that you w
 $ gem install cocoapods
 ```
 
-> CocoaPods 1.1+ is required to build KOAlertController 0.0.1+.
+> CocoaPods 1.1+ is required to build KOAlertController 1.0.1+.
 
 To integrate KOAlertController into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
@@ -46,7 +51,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'KOAlertController', '~> 1.0.0'
+    pod 'KOAlertController', '~> 1.0.1'
 end
 ```
 

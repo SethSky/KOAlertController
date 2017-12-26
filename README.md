@@ -5,6 +5,8 @@ KOAlertController is an custom alert controller library written in Swift.
 Use this class to configure alerts and action sheets with the message that you want to display and the actions from which to choose
 
 <div align="center">
+<img src="Assets/KOAlertController_1.png" width="225" height="400">
+img src="Assets/KOAlertController_2.png" width="225" height="400">
 <img src="Assets/KOAlertController_3.png" width="225" height="400">
 </div>
 

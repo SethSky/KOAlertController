@@ -10,13 +10,13 @@ import UIKit
 
 /// Aler style object
 open class KOAlertStyle{
-    var backgroundColor     : UIColor!
-    var titleColor          : UIColor!
-    var titleFont           : UIFont!
-    var messageColor        : UIColor!
-    var messageFont         : UIFont!
-    var cornerRadius        : CGFloat!
-    init() {
+    public var backgroundColor     : UIColor!
+    public var titleColor          : UIColor!
+    public var titleFont           : UIFont!
+    public var messageColor        : UIColor!
+    public var messageFont         : UIFont!
+    public var cornerRadius        : CGFloat!
+    public init() {
         self.backgroundColor    = UIColor.white
         self.titleColor         = UIColor.black
         self.titleFont          = UIFont.boldSystemFont(ofSize: 27)

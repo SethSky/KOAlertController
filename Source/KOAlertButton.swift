@@ -10,14 +10,14 @@ import UIKit
 
 /// Aler button style
 open class KOAlertButton{
-    var backgroundColor     : UIColor!
-    var titleColor          : UIColor!
-    var font                : UIFont!
-    var borderColor         : UIColor!
-    var borderWidth         : CGFloat!
-    var cornerRadius        : CGFloat!
-    var title               : String!
-    init(_ type:KOTypeButton, title:String) {
+    public var backgroundColor     : UIColor!
+    public var titleColor          : UIColor!
+    public var font                : UIFont!
+    public var borderColor         : UIColor!
+    public var borderWidth         : CGFloat!
+    public var cornerRadius        : CGFloat!
+    public var title               : String!
+    public init(_ type:KOTypeButton, title:String) {
         self.title = title.uppercased()
         switch type {
         case .cancel:

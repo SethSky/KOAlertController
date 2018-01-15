@@ -10,6 +10,11 @@ import UIKit
 
 /// Aler style object
 open class KOAlertStyle{
+    public enum PositionType {
+        case center
+        case `default`
+    }
+    public var position            : PositionType = .default
     public var backgroundColor     : UIColor!
     public var titleColor          : UIColor!
     public var titleFont           : UIFont!

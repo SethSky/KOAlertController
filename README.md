@@ -35,7 +35,7 @@ Use this class to configure alerts and action sheets with the message that you w
 
 - iOS 9.0+
 - Xcode 8.3+
-- Swift 3.0+
+- Swift 3.1+
 
 ## Installation
 
@@ -57,7 +57,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'KOAlertController', '~> 1.0.1'
+    pod 'KOAlertController', '~> 1.0.2'
 end
 ```
 

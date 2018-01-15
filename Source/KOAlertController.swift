@@ -50,8 +50,8 @@ open class KOAlertController : UIViewController{
     //––––––––––––––––––––––––––––––––––––––––
     // Message text
     private var message                 : String?
-    // Bottom constraint
-    private var bottomConstraint        : NSLayoutConstraint!
+    // position constraint
+    private var positionConstrant       : NSLayoutConstraint!
     // Height scroll constraint
     private var heightScrollConstraint  : NSLayoutConstraint!
     // Content container
@@ -134,7 +134,7 @@ open class KOAlertController : UIViewController{
         super.viewDidAppear(animated)
         UIView.animate(withDuration: animationDuration, animations: {
             self.view.backgroundColor = UIColor.black.withAlphaComponent(0.70)
-            self.bottomConstraint.constant = self.insets.bottom
+            self.positionConstrant.constant = self.insets.bottom
             self.view.layoutIfNeeded()
         }) { (compete) in
             self.textFieldArray.first?.becomeFirstResponder()
@@ -194,13 +194,18 @@ open class KOAlertController : UIViewController{
     private func createAlertView(){
         self.alertView = self.createView(style.backgroundColor, style.cornerRadius)
         self.view.addSubview(self.alertView)
-        //Add constraints
         let screenHeight = UIScreen.main.bounds.height
-        self.bottomConstraint = self.view.bottomAnchor.constraint(equalTo: alertView.bottomAnchor, constant: -screenHeight)
+        //Add constraints
+        switch style.position {
+        case .center:
+            self.positionConstrant =  self.view.centerYAnchor.constraint(equalTo: alertView.centerYAnchor, constant: -screenHeight)
+        default:
+            self.positionConstrant = self.view.bottomAnchor.constraint(equalTo: alertView.bottomAnchor, constant: -screenHeight)
+        }
         self.view.addConstraints([
             self.view.trailingAnchor.constraint(equalTo: alertView.trailingAnchor, constant: self.insets.right),
             self.alertView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: self.insets.left),
-            self.bottomConstraint,
+            self.positionConstrant
             ])
     }
     /// Create and add button view
@@ -598,7 +603,7 @@ open class KOAlertController : UIViewController{
     private func dismis(_ index:Int){
         UIView.animate(withDuration: 0.35, animations: {
             self.view.backgroundColor = UIColor.black.withAlphaComponent(0.0)
-            self.bottomConstraint.constant = -UIScreen.main.bounds.height
+            self.positionConstrant.constant = -UIScreen.main.bounds.height
             self.view.layoutIfNeeded()
         }) { (comp) in
             DispatchQueue.main.async {
@@ -630,7 +635,20 @@ open class KOAlertController : UIViewController{
         var info = notification.userInfo!
         let kbSize = (info[UIKeyboardFrameEndUserInfoKey] as! CGRect).size
         UIView.animate(withDuration: info[UIKeyboardAnimationDurationUserInfoKey] as! TimeInterval) {
-            self.bottomConstraint.constant = (kbSize.height+self.insets.bottom)
+            var bottomInset = kbSize.height + self.insets.bottom
+            switch self.style.position {
+            case .center:
+                let bY = self.alertView.frame.height + self.alertView.frame.origin.y
+                let screenHeight = UIScreen.main.bounds.height
+                if (screenHeight - bottomInset) > bY{
+                    bottomInset = 0
+                }else{
+                    bottomInset = bY - (screenHeight - bottomInset)
+                }
+                self.positionConstrant.constant = bottomInset
+            default:
+                self.positionConstrant.constant = bottomInset
+            }
             self.view.layoutIfNeeded()
         }
     }
@@ -638,7 +656,7 @@ open class KOAlertController : UIViewController{
     @objc private func keyboardWillBeHidden(_ notification: Notification) {
         var info = notification.userInfo!
         UIView.animate(withDuration: info[UIKeyboardAnimationDurationUserInfoKey] as! TimeInterval) {
-            self.bottomConstraint.constant = self.insets.bottom
+            self.positionConstrant.constant = self.insets.bottom
             self.view.layoutIfNeeded()
         }
     }

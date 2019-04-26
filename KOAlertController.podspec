@@ -6,7 +6,6 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/SethSky/KOAlertController'
   s.authors = { 'Oleksandr Khymych' => 'seth@khymych.com' }
   s.source = { :git => 'https://github.com/SethSky/KOAlertController.git', :tag => s.version }
-  spec.swift_version = '5.0'
 
   s.ios.deployment_target = '9.0'
 

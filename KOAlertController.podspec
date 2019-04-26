@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'KOAlertController'
-  s.version = '1.0.2'
+  s.version = '1.0.3'
   s.license = 'MIT'
   s.summary = 'KOAlertController is an custom alert controller library written in Swift'
   s.homepage = 'https://github.com/SethSky/KOAlertController'
